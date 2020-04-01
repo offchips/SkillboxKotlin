@@ -16,7 +16,38 @@ fun main() {
 //    functionWithAnyaram('v')
 //    functionWithAnyaram(3)
 
-    println(getDeveloperPosition(2))
+//    println(getDeveloperPosition(6))
+
+    val a = 100
+    val b = 200
+    if (a>100){
+        print("1")
+    }else if (b<200){
+        print("2")
+    }else if (a>10){
+        print("3")
+    }else if (b>10){
+        print("4")
+    }
+    print(calc(1>0))
+
+//    val exp = 2
+//    val posit = when(exp){
+//        0 -> "Intern"
+//        in 1..2 -> "jun"
+//        3,4 -> "Middle"
+//    }
+}
+
+fun calc(par: Boolean): Int{
+    return if (par){
+        val inter = 1 + 2
+        inter +2
+        inter +5
+    }else{
+        val inter = 2 + 4
+        inter + 100
+    }
 }
 
 //fun multiply(a: Int, b: Int):Int{
