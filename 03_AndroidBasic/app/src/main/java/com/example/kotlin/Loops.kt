@@ -5,18 +5,20 @@ fun main() {
     val n: Int = readLine()?.toIntOrNull() ?: return
 
     println("Вы ввели число: $n")
-    println("Сумма с помощью while = ${calculateSumByWhile(n)}")
-    println("Сумма с помощью while и return = ${calculateSumByWhileInfiniteReturn(n)}")
-    println("Сумма с помощью while и break = ${calculateSumByWhileInfiniteBreak(n)}")
+//    println("Сумма с помощью while = ${calculateSumByWhile(n)}")
+//    println("Сумма с помощью while и return = ${calculateSumByWhileInfiniteReturn(n)}")
+//    println("Сумма с помощью while и break = ${calculateSumByWhileInfiniteBreak(n)}")
+//
+////    printEverNumbers(n)
+//
+//    println("Сумма с помощью do while = ${calculateSumDoWhile(n)}")
+//    println("Сумма с помощью for = ${calculateSumFor(n)}")
+//
+//    printChars()
+//    printEverNumberFor(n)
+//    printBackEverNumberFor(n)
 
-//    printEverNumbers(n)
-
-    println("Сумма с помощью do while = ${calculateSumDoWhile(n)}")
-    println("Сумма с помощью for = ${calculateSumFor(n)}")
-
-    printChars()
-    printEverNumberFor(n)
-    printBackEverNumberFor(n)
+    printTest(n)
 }
 
 fun calculateSumByWhile(n: Int):Long{
@@ -101,5 +103,11 @@ fun printBackEverNumberFor(n:Int){
     val range = n downTo 0 step 2
     for (currentNumber in range){
         println(currentNumber)
+    }
+}
+fun printTest(n:Int){
+    val range = 0..n step 2
+    for (i in range){
+        println(i)
     }
 }
