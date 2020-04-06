@@ -1,64 +1,48 @@
 package com.example.a03_kotlinbasic
 
-val mutableList = mutableListOf<Int>()
-val mutableSet = mutableSetOf<Int>()
-var countPlus: Int = 0
-var nod: Int = 0
-
-val mapNNod: MutableMap<Int, Int> = mutableMapOf()
-
 fun main() {
+    val mutableList = mutableListOf<Int>()
+    val mutableSet = mutableSetOf<Int>()
+    val mapNNod: MutableMap<Int, Int> = mutableMapOf()
     while (true) {
         print("Введите число: ")
         var n: Int = readLine()?.toIntOrNull() ?: continue
         println("Вы ввели число: $n")
-        listN(n)
-        println(mutableList)
-        countPlus(n)
-        evenNumber()
-        numberOfUniqueNumbers(n)
-        println(calculateSumFor(n))
+        mutableList.add(n)
+        println("Основной список = $mutableList")
+        println("Количество положительных чисел = ${countPlus(n, mutableList)}")
+        println("Четные числа = ${evenNumber(mutableList)}")
+        println("Количество уникальных введенных чисел = ${numberOfUniqueNumbers(n, mutableSet)}")
+        println("Сумма всех введенных чисел = ${mutableList.sum()}")
+        for (currentInt: Int in mutableList) {
+            mapNNod.put(n, gcd(n, mutableList.sum()))
+        }
+        for (key in mapNNod.keys) {
+            println("Число = $key, Сумма = ${mutableList.sum()}, НОД = ${mapNNod[key]}")
+        }
+        println("-----------------------------------------------------------------------------")
     }
 }
 
-fun listN(n: Int) {
-    mutableList.add(n)
-}
-
-fun countPlus(n: Int) {
-    if (n > 0) {
-        countPlus = countPlus + 1
+fun countPlus(n: Int, mutableList: MutableList<Int>): Int {
+    var countPlus = 0
+    for (currentInt: Int in mutableList) {
+        if (n > 0) countPlus += 1
     }
-    println("Количество положительных чисел = $countPlus")
+    return countPlus
 }
 
-fun evenNumber() {
+fun evenNumber(mutableList: MutableList<Int>): List<Int> {
     val evenNumber = mutableList.filter { it % 2 == 0 && it != 0 }
-    println("Четные числа = $evenNumber")
+    return evenNumber
 }
 
-fun numberOfUniqueNumbers(n: Int) {
+fun numberOfUniqueNumbers(n: Int, mutableSet: MutableSet<Int>): Int {
     mutableSet.add(n)
-    println("Количество уникальных введенных чисел = ${mutableSet.size}")
-}
-
-fun calculateSumFor(n: Int) {
-    var sum: Int = 0
-    for (currentNumber: Int in mutableList) {
-        sum += currentNumber
-    }
-    println("Сумма всех введенных чисел = $sum")
-    println("НОД = " + gcd(n, sum))
-    mapNNod.put(n, nod)
-    for (key in mapNNod.keys) {
-        println("Число = $key, Сумма = $sum, НОД = ${mapNNod[key]}")
-    }
+    return mutableSet.size
 }
 
 tailrec fun gcd(n: Int, b: Int): Int {
-    if (b == 0) {
-        nod = n
-        return n
-    }
+    if (b == 0) return n
     return gcd(b, n % b)
 }
