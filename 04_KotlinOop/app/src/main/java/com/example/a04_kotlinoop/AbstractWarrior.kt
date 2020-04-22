@@ -1,12 +1,16 @@
 package com.example.a04_kotlinoop
 
+import kotlin.random.Random
+import kotlin.random.nextInt
+
 abstract class AbstractWarrior(
     maxHealth: Int,
     override val chanceToDodging: Int,
     val accuracy: Int,
-    val weapon: AbstractWeapon
+    private val weapon: AbstractWeapon
 ) : Warrior {
-    var currentHealth: Int
+    private var currentHealth: Int
+    override var isKilled: Boolean = false
 
     init {
         currentHealth = maxHealth
@@ -14,12 +18,14 @@ abstract class AbstractWarrior(
 
     override fun attack(warrior: Warrior) {
         val outOfAmmo = weapon.getWeapon().isEmpty()
+        var damage: Int = 0
         if (outOfAmmo) {
             weapon.reload()
         } else {
-            val damage: Int
-            damage = weapon.getWeapon().sumBy { it.getDamage() }
-            warrior.takeDamage(damage)
+            if (Random.nextInt(0..accuracy) >= Random.nextInt(0..chanceToDodging)) {
+                damage = weapon.getWeapon().sumBy { it.getDamage() }
+                warrior.takeDamage(damage)
+            }
         }
     }
 
@@ -29,5 +35,6 @@ abstract class AbstractWarrior(
         } else {
             currentHealth = currentHealth - damage
         }
+        isKilled = currentHealth.equals(0)
     }
 }
