@@ -1,4 +1,4 @@
-package com.example.a04_kotlinoop
+package com.example.a04_kotlinoop.weapons
 
 abstract class AbstractWeapon(
     val maxWeapon: Int,                                                                             //количество патронов в обойме

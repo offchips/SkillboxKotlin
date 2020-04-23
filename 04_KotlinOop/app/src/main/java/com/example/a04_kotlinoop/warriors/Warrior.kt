@@ -1,4 +1,4 @@
-package com.example.a04_kotlinoop
+package com.example.a04_kotlinoop.warriors
 
 interface Warrior {
     val isKilled: Boolean

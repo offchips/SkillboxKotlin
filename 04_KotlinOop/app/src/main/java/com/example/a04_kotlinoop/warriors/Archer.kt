@@ -1,7 +1,10 @@
-package com.example.a04_kotlinoop
+package com.example.a04_kotlinoop.warriors
+
+import com.example.a04_kotlinoop.weapons.AbstractWeapon
 
 //лучник
 class Archer(
+    override var isKilled: Boolean = false,
     maxHealth: Int,
     chanceToDodging: Int,
     accuracy: Int,

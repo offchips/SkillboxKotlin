@@ -1,4 +1,4 @@
-package com.example.a04_kotlinoop
+package com.example.a04_kotlinoop.weapons
 
 sealed class FireType(
     open val ammo: Ammo,                                                                            //тип оружия

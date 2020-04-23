@@ -1,7 +1,10 @@
-package com.example.a04_kotlinoop
+package com.example.a04_kotlinoop.warriors
+
+import com.example.a04_kotlinoop.weapons.AbstractWeapon
 
 //стрелок
 class Shooter(
+    override var isKilled: Boolean = false,
     maxHealth: Int,
     chanceToDodging: Int,
     accuracy: Int,

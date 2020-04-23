@@ -1,5 +1,6 @@
-package com.example.a04_kotlinoop
+package com.example.a04_kotlinoop.warriors
 
+import com.example.a04_kotlinoop.weapons.AbstractWeapon
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -17,7 +18,7 @@ abstract class AbstractWarrior(
     }
 
     override fun attack(warrior: Warrior) {
-        val outOfAmmo = weapon.getWeapon().isEmpty()
+        val outOfAmmo = weapon.ammoIsEmpty
         var damage: Int = 0
         if (outOfAmmo) {
             weapon.reload()
