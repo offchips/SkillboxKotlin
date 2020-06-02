@@ -4,9 +4,8 @@ abstract class AbstractWeapon(
     val maxWeapon: Int,                                                                             //количество патронов в обойме
     val fireType: FireType                                                                          //тип стрельбы
 ) {
-    private var ammoList: MutableList<Ammo> =
-        mutableListOf()                                                                             //патроны в обойме
-
+    private var ammoList: MutableList<Ammo> = mutableListOf()                                       //патроны в обойме
+    var weapons: MutableList<Ammo> = mutableListOf()
     val ammoIsEmpty: Boolean                                                                        //признак пустоты обоймы
         get() = ammoList.isEmpty()
 
@@ -21,16 +20,11 @@ abstract class AbstractWeapon(
             for (ever in 1..maxWeapon) {
                 ammoList.add(makeWeapon())
             }
-
         }
-//        ammoList.clear()                                                                            //очистка обоймы
     }
 
     fun getWeapon(): List<Ammo> {                                                                   //получение патрона
-        var weapons: MutableList<Ammo> =
-            mutableListOf()                                                                         //использованные патроны
-        var countRepeat =
-            fireType.repeatCount                                                                    //если обойма не пуста и количество перезарядок больше 0
+        var countRepeat = fireType.repeatCount                                                 //если обойма не пуста и количество перезарядок больше 0
         while (!ammoIsEmpty && countRepeat > 0) {
             weapons.add(ammoList.last())                                                            //добавляем использованый патрон
             ammoList.removeAt(ammoList.lastIndex)                                                   //удаляем его из списка патронов

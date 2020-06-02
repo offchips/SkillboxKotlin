@@ -4,7 +4,7 @@ import com.example.a04_kotlinoop.weapons.AbstractWeapon
 
 //стрелок
 class Shooter(
-    override var isKilled: Boolean = false,
+    override var isKilled: Boolean,
     maxHealth: Int,
     chanceToDodging: Int,
     accuracy: Int,

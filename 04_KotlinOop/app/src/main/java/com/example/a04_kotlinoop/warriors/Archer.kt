@@ -4,7 +4,7 @@ import com.example.a04_kotlinoop.weapons.AbstractWeapon
 
 //лучник
 class Archer(
-    override var isKilled: Boolean = false,
+    override var isKilled: Boolean,
     maxHealth: Int,
     chanceToDodging: Int,
     accuracy: Int,

@@ -5,4 +5,5 @@ interface Warrior {
     val chanceToDodging: Int
     fun attack(warrior: Warrior)
     fun takeDamage(damage: Int)
+    fun getCurrentHealth(): Int
 }

@@ -3,10 +3,10 @@ package com.example.a04_kotlinoop.weapons
 object Weapons {
     val firearm =
         object : AbstractWeapon(                                          //огнестрельное оружие
-            maxWeapon = 100,
+            maxWeapon = 20,
             fireType = FireType.BurstsShots(
                 ammo = Ammo.BULLET,
-                repeatCount = 10
+                repeatCount = 5
             )
         ) {
             override fun makeWeapon(): Ammo {
@@ -15,7 +15,7 @@ object Weapons {
         }
     val meleeWeapon =
         object : AbstractWeapon(                                      //холодное оружие
-            maxWeapon = 10,
+            maxWeapon = 1,
             fireType = FireType.SingleShots(
                 Ammo.KNIFE
             )
@@ -35,7 +35,7 @@ object Weapons {
         }
     }
     val projectile = object : AbstractWeapon(                                       //гранаты
-        maxWeapon = 5,
+        maxWeapon = 1,
         fireType = FireType.SingleShots(
             Ammo.GRENADE
         )
