@@ -30,13 +30,12 @@ abstract class AbstractWarrior(
     }
 
     override fun takeDamage(damage: Int) {
-
         if (currentHealth - damage < 0) {
+            isKilled = true
             currentHealth = 0
         } else {
-            currentHealth - damage
+            currentHealth = currentHealth - damage
         }
-        isKilled = currentHealth == 0
     }
 
     override fun getCurrentHealth(): Int {

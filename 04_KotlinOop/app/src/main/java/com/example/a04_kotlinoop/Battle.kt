@@ -45,10 +45,10 @@ class Battle(
             BattleState.SecondTeamWin("Победила вторая команда")
         }else if (secondTeamHealth == 0){
             BattleState.FirstTeamWin("Победила первая команда")
-        }else if (firstTeamHealth == 0 && secondTeamHealth == 0){
-            BattleState.NoOneWon("Ничья")
-        }else {
+        }else if (firstTeamHealth != 0 && secondTeamHealth != 0){
             BattleState.CurrentState("Progress(commandAHealth=$firstTeamHealth, commandBHealth=$secondTeamHealth)")
+        }else {
+            BattleState.NoOneWon("Ничья")
         }
     }
 

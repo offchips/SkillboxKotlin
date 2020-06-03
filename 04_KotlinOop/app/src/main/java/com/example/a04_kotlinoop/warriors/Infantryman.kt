@@ -4,7 +4,6 @@ import com.example.a04_kotlinoop.weapons.AbstractWeapon
 
 //пехотинец
 class Infantryman(
-    override var isKilled: Boolean,
     maxHealth: Int,
     chanceToDodging: Int,
     accuracy: Int,

@@ -24,7 +24,6 @@ class Team(
             when (Random.nextInt(100)) {
                 in 1..20 -> listOfWarrior.add(
                     Shooter(
-                        false,
                         300,
                         30,
                         20,
@@ -33,7 +32,6 @@ class Team(
                 )
                 in 21..40 -> listOfWarrior.add(
                     Shooter(
-                        false,
                         300,
                         30,
                         20,
@@ -42,7 +40,6 @@ class Team(
                 )
                 in 41..60 -> listOfWarrior.add(
                     Infantryman(
-                        false,
                         200,
                         20,
                         25,
@@ -51,7 +48,6 @@ class Team(
                 )
                 in 61..80 -> listOfWarrior.add(
                     Infantryman(
-                        false,
                         200,
                         20,
                         20,
@@ -60,7 +56,6 @@ class Team(
                 )
                 in 81..100 -> listOfWarrior.add(
                     Archer(
-                        false,
                         200,
                         20,
                         10,
