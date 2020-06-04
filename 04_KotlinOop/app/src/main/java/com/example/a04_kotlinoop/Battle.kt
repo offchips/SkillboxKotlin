@@ -1,7 +1,6 @@
 package com.example.a04_kotlinoop
 
 import com.example.a04_kotlinoop.warriors.Warrior
-import com.example.a04_kotlinoop.weapons.Ammo
 import kotlin.random.Random
 
 class Battle(
@@ -38,17 +37,17 @@ class Battle(
         }
     }
 
-    private fun getBattleState(): BattleState {
+     fun getBattleState(): BattleState {
         val firstTeamHealth = teamsArray[0].getWarriorList().sumBy { it.getCurrentHealth() }
         val secondTeamHealth = teamsArray[1].getWarriorList().sumBy { it.getCurrentHealth() }
-        return if (firstTeamHealth == 0){
-            BattleState.SecondTeamWin("Победила вторая команда")
-        }else if (secondTeamHealth == 0){
-            BattleState.FirstTeamWin("Победила первая команда")
+        return if (firstTeamHealth == 0 && secondTeamHealth != 0){
+            BattleState.SecondTeamWin
+        }else if (secondTeamHealth == 0 && firstTeamHealth != 0){
+            BattleState.FirstTeamWin
         }else if (firstTeamHealth != 0 && secondTeamHealth != 0){
-            BattleState.CurrentState("Progress(commandAHealth=$firstTeamHealth, commandBHealth=$secondTeamHealth)")
+            BattleState.CurrentState(firstTeamHealth,secondTeamHealth)
         }else {
-            BattleState.NoOneWon("Ничья")
+            BattleState.NoOneWon
         }
     }
 
